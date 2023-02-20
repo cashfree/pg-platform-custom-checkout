@@ -1,0 +1,30 @@
+<html>
+<body>
+<form id="redirectForm" method="post" action="%s">
+    %s
+</form>
+<script type="text/javascript">
+	window.onload = function () {
+	    const form = document.getElementById("redirectForm");
+
+	    const meta = {
+            userAgent: window.navigator.userAgent,
+        };
+        const sortedMeta = Object.entries(meta)
+            .sort()
+            .reduce((o, [k, v]) => {
+                o[k] = v;
+                return o;
+            }, {});
+        const base64Meta = btoa(JSON.stringify(sortedMeta));
+
+        FN = document.createElement('input');
+        FN.setAttribute('type', 'hidden');
+        FN.setAttribute('name', 'browser_meta');
+        FN.setAttribute('value', base64Meta);
+        form.appendChild(FN);
+        form.submit();
+        }
+  </script>
+</body>
+</html>
