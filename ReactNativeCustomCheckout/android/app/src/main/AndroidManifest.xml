@@ -2,6 +2,16 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <data
+                android:host="pay"
+                android:scheme="upi" />
+        </intent>
+        <package android:name="com.android.chrome" />
+    </queries>
+
     <application
         android:name=".MainApplication"
         android:allowBackup="false"

@@ -66,7 +66,7 @@ public class PaymentCheckoutActivity extends AppCompatActivity {
             boolean foundPackageFlag = false;
             ResolveInfo upiClientResolveInfo = null;
             for (ResolveInfo info : resInfoList) {
-                if (info.activityInfo.packageName == appPkg) {
+                if (info.activityInfo.packageName.equals(appPkg)) {
                     foundPackageFlag = true;
                     upiClientResolveInfo = info;
                     break;
@@ -180,6 +180,7 @@ public class PaymentCheckoutActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.v(TAG, "Return From UPI App");
         if (requestCode == REQ_CODE_UPI) {
             if (resultCode == RESULT_OK) {
                 Log.v(TAG, "Return From UPI App");

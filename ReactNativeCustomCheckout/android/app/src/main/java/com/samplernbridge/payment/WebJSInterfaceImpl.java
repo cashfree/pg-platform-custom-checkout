@@ -50,7 +50,7 @@ public class WebJSInterfaceImpl {
             for (ResolveInfo info : resolveInfoList) {
                 JSONObject appInfo = new JSONObject();
                 appInfo.put("appName", callback.getAppName(info.activityInfo.applicationInfo));
-                appInfo.put("appPackage", info.activityInfo.applicationInfo);
+                appInfo.put("appPackage", info.activityInfo.packageName);
                 packageNames.put(appInfo);
             }
         } catch (Exception e) {
